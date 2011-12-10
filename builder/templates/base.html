@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Crawley</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+<link type="image/png" href="/media/images/blue_jay_small.png" rel="icon" />
+<link rel="stylesheet" type="text/css" href="/media/bootstrap/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/media/styles/styles.css">
+<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22180533-7']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+	
+	<div class="container">
+		
+		<div class="span-24 last" style="height: 40px;">                        
+		</div>				
+						
+		<div class="topbar">
+		    <div class="fill">
+			<div class="container">
+			    <a class="brand" href="/">Builder</a>
+			      
+			      <ul class="nav">             
+				<li class="current_page_item"><a href="/">Home</a></li>				    
+				<li><a href="/about">About</a></li>
+				<li><!-- Añade esta etiqueta en la cabecera o delante de la etiqueta body. -->
+					<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+					<!-- Añade esta etiqueta donde quieras colocar el botón +1 -->
+					<g:plusone></g:plusone>
+				</li>
+				</ul>
+				{% if not user.is_authenticated %}			      
+				    
+				      <form method="post" action="{% url django.contrib.auth.views.login %}" class="pull-right">
+					    {% csrf_token %}
+					    <input class="input-small" type="text" placeholder="Username" name="username">
+					    <input class="input-small" type="password" placeholder="Password" name="password">
+					    <button class="btn" type="submit">Sign in</button>
+				      </form> 
+				{% else %}
+				      <form method="get" action="/accounts/logout/" class="pull-right">
+					  <button class="btn" type="submit">Logout</button>
+				      </form>				    
+				{% endif %}			      
+			</div>
+		    </div>
+		</div>
+										
+		<div class="page-header">			
+		    <h1>
+			<div class="row">					
+			     <div class="span10 vertical">
+				<span class="vcenter"><a href="/">Builder</a></span>
+			    </div>
+			</div>				
+		    </h1>
+		</div>		
+        
+        <a href="https://github.com/jmg/crawley/"><img style="position: absolute; top: 30px; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" /></a>
+
+		<div id="content" class="content">
+			
+            {% block content %}
+            
+            {% endblock %}
+									
+		</div>
+		
+		<footer>
+			<div style="text-align: center">&copy; Builder 2011</div>
+		</footer>
+		<br/>
+	</div>
+				
+</body>
+</html>
+		

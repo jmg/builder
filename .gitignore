@@ -1,0 +1,14 @@
+*.pyc
+*.sqlite
+*.egg-info
+*.project
+*.pydevproject
+build
+dist
+docs/build
+env
+bin
+include
+lib
+local
+.Python
