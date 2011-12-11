@@ -1,7 +1,10 @@
 # Create your views here.
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView, ListView
 from django.shortcuts import render_to_response, redirect, get_object_or_404
-from ..models import Project
+from generics import CreateWithUserView
+
+from ..models import *
+from ..forms import ProjectForm
 
 class IndexView(TemplateView):
     
@@ -19,9 +22,16 @@ class AboutView(TemplateView):
     
     template_name = "about.html"
     
+
+class ProjectCreateView(CreateWithUserView):
     
-class ProjectView(TemplateView):
+    template_name = "projects/create.html"
+    model = Project    
+    form_class = ProjectForm    
+
+
+class ProjectListView(ListView):
     
+    template_name = "projects/list.html"
     model = Project
-    
     

@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class Project(models.Model):
     
-    user = models.OneToOneField(User)
+    user = models.ForeignKey(User)
     
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=50)
