@@ -1,5 +1,5 @@
 # Create your views here.
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ModelView
 
 class IndexView(TemplateView):
     
@@ -8,3 +8,5 @@ class IndexView(TemplateView):
 class AboutView(TemplateView):
     
     template_name = "about.html"
+    
+class ProjectView(TemplateView):
