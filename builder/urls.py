@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import patterns, include, url
 from settings import MEDIA_ROOT
 
-from builder_app.views import IndexView, AboutView
+from builder_app.views.main import IndexView, AboutView
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin

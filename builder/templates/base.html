@@ -46,7 +46,7 @@
 					<g:plusone></g:plusone>
 				</li>
 				</ul>
-				{% if not user.is_authenticated %}			      
+				{% if not user.is_authenticated %}
 				    
 				      <form method="post" action="{% url django.contrib.auth.views.login %}" class="pull-right">
 					    {% csrf_token %}
@@ -65,8 +65,11 @@
 										
 		<div class="page-header">			
 		    <h1>
-			<div class="row">					
-			     <div class="span10 vertical">
+			<div class="row">
+			    <div class="span4">
+				
+			    </div>
+			    <div class="span10 vertical">
 				<span class="vcenter"><a href="/">Builder</a></span>
 			    </div>
 			</div>				
