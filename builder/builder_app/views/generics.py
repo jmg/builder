@@ -6,9 +6,18 @@ class CreateWithUserView(CreateView):
     
     def get_initial(self):
         
-        return { "user": self.request.user }
+        user_field = self.get_user_field()
+        return { user_field : self.request.user }
         
     def form_valid(self, form):
-                
-        form.instance.user_id = self.request.user.id
+        
+        user_field = "%s_id" % self.get_user_field()
+        setattr(form.instance, user_field, self.request.user.id)
         return CreateView.form_valid(self, form)
+    
+    def get_user_field(self):
+        """
+            Returns the name of the user field.
+            Override it in subclasses if your field is named different to the default.
+        """
+        return "user"
