@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^about/$', AboutView.as_view()),
     url(r'^projects/$', ProjectListView.as_view()),
     url(r'^projects/create/$', ProjectCreateView.as_view()),
+    url(r'^projects/follow/(?P<project_id>\d+)/$', ProjectFollowView.as_view()),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

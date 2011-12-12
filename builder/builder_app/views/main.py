@@ -35,3 +35,26 @@ class ProjectListView(ListView):
     template_name = "projects/list.html"
     model = Project
     
+    def get_queryset(self):
+        
+        projects = Project.objects.all()
+        
+        for project in projects:
+            if self.request.user.id in [u.id for u in project.followers.all()]:
+                project.followed = True
+            else:
+                project.followed = False
+        
+        return projects
+    
+
+class ProjectFollowView(TemplateView):
+    
+    def render_to_response(self, context):
+        
+        user = self.request.user
+        project = Project.objects.get(id=self.kwargs['project_id'])
+        project.followers.add(user)
+        project.save()
+        
+        return redirect("/projects")

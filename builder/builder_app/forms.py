@@ -9,6 +9,6 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         
         model = Project
-        exclude = ("user",)
+        exclude = ("user", "followers", "members")
 
     

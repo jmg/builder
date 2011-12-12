@@ -5,7 +5,12 @@
     
     <ul>
         {% for project in object_list %}
-            <li>{{ project.name }} - {{ project.short_description }} - posted by {{ project.user }}</li>
+            <li>{{ project.name }} - {{ project.short_description }} - posted by {{ project.user }} - 
+            {% if not project.followed %}
+                <a href="/projects/follow/{{ project.id }}">Follow</a></li>
+            {% else %}
+                Following
+            {% endif %}
         {% endfor %}
     </ul>
 {% endblock %}
